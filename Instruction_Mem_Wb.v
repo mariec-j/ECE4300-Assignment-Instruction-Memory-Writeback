@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 
 module Instruction_Mem(
+// - - - - - - Inputs - - - - - -
     input [1:0] WB,
     input M_ctlout,
     input Zero,
@@ -9,6 +10,7 @@ module Instruction_Mem(
     input [4:0] muxOut_5bit,
     input clk,
     input rst,
+// - - - - - - Outputs - - - - - -
     output RegWrite,
     output MemtoReg,
     output [31:0] ReadData,
