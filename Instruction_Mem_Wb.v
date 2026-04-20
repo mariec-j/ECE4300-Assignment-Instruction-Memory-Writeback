@@ -2,7 +2,7 @@
 
 module Instruction_Mem(
     input [1:0] WB,
-    input M_cltout,
+    input M_ctlout,
     input Zero,
     input [31:0] ALU_Result,
     input [31:0] ReadData2_ex_mem,
