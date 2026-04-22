@@ -18,4 +18,20 @@ module Mem_Wb_Latch(
     output reg [4:0]    Mem_Wb_Latch_MemWriteReg
     );
     
+always @(posedge clk or posedge rst)begin
+    if(rst)begin
+        Mem_Wb_Latch_RegWrite <= 0;
+        Mem_Wb_Latch_MemtoReg <= 0;
+        Mem_Wb_Latch_ReadData <= 0;
+        Mem_Wb_Latch_Mem_ALU_Result <= 0;
+        Mem_Wb_Latch_MemWriteReg <= 0;
+    end else begin
+        Mem_Wb_Latch_RegWrite <= WB[1];
+        Mem_Wb_Latch_MemtoReg <= WB[0];
+        Mem_Wb_Latch_ReadData <= ReadData2_ex_mem;
+        Mem_Wb_Latch_Mem_ALU_Result <= ALU_Result;
+        Mem_Wb_Latch_MemWriteReg <= muxOut_5bit;
+    end
+end
+
 endmodule
