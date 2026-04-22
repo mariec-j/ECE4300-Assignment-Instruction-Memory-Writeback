@@ -40,6 +40,11 @@ initial begin
     $display("\tDMEM[%0d] = %0b", i, DMEM[i]);
 end
 
-
+always @(addr)begin
+    if (memread)
+    read_data <= DMEM[addr];
+    if(memwrite)
+    DMEM[addr] <= write_data;
+end
 
 endmodule
