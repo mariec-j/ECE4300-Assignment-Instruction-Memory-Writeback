@@ -29,4 +29,17 @@ module Data_Mem(
     input rst,
     output [31:0] DataMem_ReadData
     );
+
+reg [31:0] DMEM[0:255]
+integer i;
+
+initial begin
+    DataMem_ReadData <= 0;
+    $readmemb("data.txt",DMEM);
+    for(i = 0; i < 6; i = i + 1)
+    $display("\tDMEM[%0d] = %0b", i, DMEM[i]);
+end
+
+
+
 endmodule
