@@ -17,5 +17,5 @@ Complete the model of Instruction Execute (IE) Stage of the MIPS Pipeline using 
 
 **Timing Diagram Screenshot**
 
-![Image]("https://github.com/mariec-j/ECE4300-Assignment-Instruction-Memory-Writeback/blob/main/tb_files/Instr_Mem_TB_waveform.png")
+![Image](https://github.com/mariec-j/ECE4300-Assignment-Instruction-Memory-Writeback/blob/main/tb_files/Instr_Mem_TB_waveform.png)
 
