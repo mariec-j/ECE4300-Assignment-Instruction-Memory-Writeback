@@ -21,7 +21,7 @@ module Instr_Mem_tb();
     wire [4:0]  MemWriteReg;
     wire    PCSrc;
 
-Instruction_Mem(
+Instruction_Mem UUT (
 // - - - - - - Inputs - - - - - -
     .WB(WB),
     .M_ctlout(M_ctlout),
@@ -46,10 +46,20 @@ always #5 clk = ~clk;
 
 initial begin
 // Initialize
-    rst = 1;
+    ALU_Result = 32'h0;
+    ReadData2_ex_mem = 32'h0;
+    muxOut_5bit = 5'h00;
+    WB = 2'b00;
+    MemWrite = 0;
+    MemRead = 0;
+    M_ctlout = 0;
+    Zero = 0;
+    clk = 0;
+    rst = 0;
     #5
 
 // Mem Read
+    rst = 1;
     ALU_Result = 32'h00000004;
     ReadData2_ex_mem = 32'h12345678;
     muxOut_5bit = 5'h02;

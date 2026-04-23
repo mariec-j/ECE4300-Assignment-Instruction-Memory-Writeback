@@ -40,7 +40,7 @@ Data_Mem datamem01 (
 
     );
     
-Mem_Wb_Latch(
+Mem_Wb_Latch M_W_Latch(
 // - - - - - - Inputs - - - - - -
     .WB(WB),
     .ALU_Result(ALU_Result),
