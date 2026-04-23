@@ -1,24 +1,12 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 04/20/2026 01:26:51 PM
-// Design Name: 
-// Module Name: Data_Mem
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+/*Instantiates and serves as the data memory.
+- If memread is true, then read_data is re-assigned
+as the value in current address. 
 
+- If memwrite is true, then read_data is unaltered,
+and instead, the value in the current address is
+changed to rdata2out. 
+*/
 
 module Data_Mem(
     input MemWrite,
@@ -27,10 +15,11 @@ module Data_Mem(
     input MemRead,
     input clk,
     input rst,
-    output [31:0] DataMem_ReadData
+    output reg [31:0] DataMem_ReadData
     );
 
-reg [31:0] DMEM[0:255]
+reg [31:0] DMEM[0:255];
+reg [0:255] addr;
 integer i;
 
 initial begin
@@ -40,11 +29,11 @@ initial begin
     $display("\tDMEM[%0d] = %0b", i, DMEM[i]);
 end
 
-always @(addr)begin
-    if (memread)
-    read_data <= DMEM[addr];
-    if(memwrite)
-    DMEM[addr] <= write_data;
+always @(addr) begin
+    if (MemRead)
+    DataMem_ReadData <= DMEM[addr];
+    if(MemWrite)
+    DMEM[addr] <= ReadData2_ex_mem;
 end
 
 endmodule
